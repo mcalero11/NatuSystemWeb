@@ -117,4 +117,25 @@ return [
 
     ],
 
+    /*
+     * A continuacion se definen los valores de longitud para las migraciones de base de datos
+     *
+     */
+    'persona' => [
+        'dui' => 10,
+        'nit' => 25,
+        'telefono' => 15,
+    ],
+
+    'producto' => [
+        'dinero' => [
+            'unidad' => 7,
+            'decimal' => 5,
+        ],
+        'cantidad' => [
+            'unidad' => 7,
+            'decimal' => 15,
+        ],
+    ],
+
 ];
