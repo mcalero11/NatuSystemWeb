@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateInventariosTable extends Migration
+class CreateDetalleDevolucionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateInventariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventarios', function (Blueprint $table) {
+        Schema::create('detalle_devoluciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('producto_id');
-            $table->unsignedInteger('local_id');
+            $table->unsignedInteger('devolucion_id');
+            $table->unsignedInteger('inventario_id');
             $table->unsignedDecimal('cantidad',6,3);
-            $table->unsignedDecimal('cantidad_retenida',6,3)->default(0);
-            $table->date('fechaVencimiento');
-            $table->timestamps();
+            $table->string('comentario');
         });
     }
 
@@ -31,6 +29,6 @@ class CreateInventariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventarios');
+        Schema::dropIfExists('detalle_devoluciones');
     }
 }
