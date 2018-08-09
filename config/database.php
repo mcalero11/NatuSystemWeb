@@ -125,6 +125,10 @@ return [
         'dui' => 10,
         'nit' => 25,
         'telefono' => 15,
+        'sueldo' => [
+            'unidad' => 5,
+            'decimal' => 2,
+        ],
     ],
 
     'producto' => [
@@ -133,8 +137,19 @@ return [
             'decimal' => 5,
         ],
         'cantidad' => [
-            'unidad' => 7,
-            'decimal' => 15,
+            'unidad' => 10,
+            'decimal' => 10,
+        ],
+        'descuento' => [
+            'unidad' => 3,
+            'decimal' => 3,
+        ],
+    ],
+
+    'caja' => [
+        'dinero' => [
+            'unidad' => 6,
+            'decimal' => 2,
         ],
     ],
 
