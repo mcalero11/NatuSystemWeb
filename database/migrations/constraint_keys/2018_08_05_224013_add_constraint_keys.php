@@ -31,12 +31,40 @@ class AddConstraintKeys extends Migration
                 ->onUpdate('cascade');
         });
 
+        Schema::table('gastos_ventas',function (Blueprint $table){
+            $table->foreign('local_id')
+                ->references('local_id')
+                ->on('cajas')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+
+            $table->foreign('insumo_id')
+                ->references('id')
+                ->on('insumos')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+        });
+
         //endregion
 
         //region EU01
+        Schema::table('usuarios',function (Blueprint $table){
+            $table->foreign('empleado_id')
+                ->references('id')
+                ->on('empleados')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+        });
         //endregion
 
         //region GC01
+        Schema::table('clientes',function (Blueprint $table){
+            $table->foreign('tipoCliente_id')
+                ->references('id')
+                ->on('tipo_clientes')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+        });
         //endregion
 
         //region ID01
