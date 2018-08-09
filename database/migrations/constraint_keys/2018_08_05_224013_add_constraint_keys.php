@@ -13,7 +13,33 @@ class AddConstraintKeys extends Migration
      */
     public function up()
     {
-        //
+        //region AI01
+        Schema::table('cajas',function (Blueprint $table){
+
+        });
+
+        //endregion
+
+        //region EU01
+        //endregion
+
+        //region GC01
+        //endregion
+
+        //region ID01
+        //endregion
+
+        //region IP01
+        //endregion
+
+        //region IR01
+        //endregion
+
+        //region IS01
+        //endregion
+
+        //region PD01
+        //endregion
     }
 
     /**
