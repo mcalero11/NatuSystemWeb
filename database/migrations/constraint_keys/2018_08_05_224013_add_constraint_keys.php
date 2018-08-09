@@ -13,9 +13,22 @@ class AddConstraintKeys extends Migration
      */
     public function up()
     {
+
         //region AI01
         Schema::table('cajas',function (Blueprint $table){
+            $table->foreign('local_id')
+                ->references('id')
+                ->on('locales')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+        });
 
+        Schema::table('cortes_diarios',function (Blueprint $table){
+            $table->foreign('local_id')
+                ->references('local_id')
+                ->on('cajas')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
         });
 
         //endregion
