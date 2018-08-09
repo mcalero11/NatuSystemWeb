@@ -16,7 +16,7 @@ class CreateAjusteInventariosTable extends Migration
         Schema::create('ajuste_inventarios', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('inventario_id');
-            $table->unsignedDecimal('cantidad',6,3);
+            $table->unsignedDecimal('cantidad',Config::get('database.producto.cantidad.unidad'),Config::get('database.producto.cantidad.decimal'));
             $table->unsignedTinyInteger('accion');
             $table->text('motivo');
             $table->timestamps();

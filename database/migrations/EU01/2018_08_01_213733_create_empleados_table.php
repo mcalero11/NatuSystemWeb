@@ -29,7 +29,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('direccion')->nullable();
             $table->string('telefono', Config::get('database.persona.telefono'))->nullable();
             $table->string('correo')->nullable();
-            $table->unsignedDecimal('sueldoBase',6,2);
+            $table->unsignedDecimal('sueldoBase',Config::get('database.persona.sueldo.unidad'),Config::get('database.persona.sueldo.decimal'));
             $table->timestamps();
         });
     }

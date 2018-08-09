@@ -17,7 +17,7 @@ class CreateCortesDiariosTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('local_id');
             $table->dateTime('fecha');
-            $table->unsignedDecimal('efectivoSaliente',6,2);
+            $table->unsignedDecimal('efectivoSaliente',Config::get('database.caja.dinero.unidad'),Config::get('database.caja.dinero.decimal'));
             $table->unsignedTinyInteger('estadoEfectivoSaliente');
             $table->timestamps();
         });

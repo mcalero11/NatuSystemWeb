@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGastosVentasTable extends Migration
+class CreateTirajesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateGastosVentasTable extends Migration
      */
     public function up()
     {
-        Schema::create('gastos_ventas', function (Blueprint $table) {
+        Schema::create('tirajes', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('documento_codigo');
             $table->unsignedInteger('local_id');
-            $table->unsignedInteger('insumo_id');
-            $table->unsignedSmallInteger('cantidad');
-            $table->unsignedDecimal('precioTotal',Config::get('database.caja.dinero.unidad'),Config::get('database.caja.dinero.decimal'));
+            $table->unsignedInteger('rangoMenor');
+            $table->unsignedInteger('rangoMayor');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateGastosVentasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gastos_ventas');
+        Schema::dropIfExists('tirajes');
     }
 }

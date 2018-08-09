@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCajasTable extends Migration
+class CreateCuentasPorCobrarTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCajasTable extends Migration
      */
     public function up()
     {
-        Schema::create('cajas', function (Blueprint $table) {
-            $table->unsignedInteger('local_id');
+        Schema::create('cuentas_por_cobrar', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('cliente_id');
+            $table->unsignedBigInteger('venta_id');
             $table->unsignedDecimal('saldoActual',Config::get('database.caja.dinero.unidad'),Config::get('database.caja.dinero.decimal'));
             $table->timestamps();
-
-            $table->primary('local_id');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateCajasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cajas');
+        Schema::dropIfExists('cuentas_por_cobrar');
     }
 }

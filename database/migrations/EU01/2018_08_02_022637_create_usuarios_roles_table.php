@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCajasTable extends Migration
+class CreateUsuariosRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateCajasTable extends Migration
      */
     public function up()
     {
-        Schema::create('cajas', function (Blueprint $table) {
-            $table->unsignedInteger('local_id');
-            $table->unsignedDecimal('saldoActual',Config::get('database.caja.dinero.unidad'),Config::get('database.caja.dinero.decimal'));
+        Schema::create('usuarios_roles', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('usuario_id');
+            $table->string('rol_codigo');
             $table->timestamps();
-
-            $table->primary('local_id');
         });
     }
 
@@ -29,6 +28,6 @@ class CreateCajasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cajas');
+        Schema::dropIfExists('usuarios_roles');
     }
 }

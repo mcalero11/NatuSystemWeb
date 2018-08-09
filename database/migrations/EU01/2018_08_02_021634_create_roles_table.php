@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCajasTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateCajasTable extends Migration
      */
     public function up()
     {
-        Schema::create('cajas', function (Blueprint $table) {
-            $table->unsignedInteger('local_id');
-            $table->unsignedDecimal('saldoActual',Config::get('database.caja.dinero.unidad'),Config::get('database.caja.dinero.decimal'));
+        Schema::create('roles', function (Blueprint $table) {
+            $table->string('codigo');
+            $table->string('nombre');
+            $table->string('descripcion');
             $table->timestamps();
 
-            $table->primary('local_id');
+            $table->primary('codigo');
         });
     }
 
@@ -29,6 +30,6 @@ class CreateCajasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cajas');
+        Schema::dropIfExists('roles');
     }
 }

@@ -19,7 +19,7 @@ class CreateDescuentosTable extends Migration
             $table->string('pais',3);
             $table->boolean('tipoClienteEspecifico');
             $table->boolean('clienteEspecifico');
-            $table->unsignedDecimal('porcentaje',1,3);
+            $table->unsignedDecimal('porcentaje',Config::get('database.producto.descuento.unidad'),Config::get('database.producto.descuento.decimal'));
             $table->date('fechaVencimiento');
             $table->timestamps();
         });

@@ -13,7 +13,7 @@ class AddConstraintKeys extends Migration
      */
     public function up()
     {
-
+        
         //region AI01
         Schema::table('cajas',function (Blueprint $table){
             $table->foreign('local_id')
